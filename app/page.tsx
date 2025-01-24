@@ -14,8 +14,8 @@ const HomePage = () => {
 
         <div className="sm:col-span-9">
           <header className="mb-12 sm:mb-16">
-            <h1 className="text-4xl sm:text-6xl mb-4 sm:mb-8 leading-tight tracking-tight font-[800]">
-              The Digital Form
+            <h1 className="text-4xl sm:text-6xl mb-4 sm:mb-8 leading-tight tracking-tight font-[800] pt-[10px]">
+              The Business of <i>You</i>
             </h1>
             <p className="text-xl sm:text-2xl font-semibold leading-snug" style={{fontFamily: 'Crimson Text, serif'}}>
               Typography must communicate clearly. The perfect page creates visual rhythm through asymmetric balance and purposeful contrast.
