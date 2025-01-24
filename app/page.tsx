@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import { Playfair_Display, Lora } from 'next/font/google';
+import Footer from './Footer';
 
 const playfair = Playfair_Display({ 
   subsets: ['latin'],
@@ -104,6 +105,7 @@ const HomePage = () => {
           </div>
         </div>
       </div>
+      <Footer />
     </div>
   );
 };

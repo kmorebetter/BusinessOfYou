@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import { Playfair_Display, Lora } from 'next/font/google';
+import Footer from '../Footer';
 
 const playfair = Playfair_Display({ 
   subsets: ['latin'],
@@ -40,7 +41,7 @@ const SubstackPage = () => {
         </div>
       </div>
 
-      <div className="max-w-[1400px] mx-auto px-6 md:px-8 pt-[200px]">
+      <div className="max-w-[1400px] mx-auto px-6 md:px-8 pt-[200px] mb-20">
         {/* Header Section */}
         <header className="max-w-3xl lg:ml-[240px] px-4 sm:px-6 mb-20">
           <h1 className={`${playfair.className} text-4xl lg:text-6xl font-extrabold text-[#202329] mb-4 leading-tight`}>
@@ -106,6 +107,7 @@ const SubstackPage = () => {
           </div>
         </div>
       </div>
+      <Footer />
     </div>
   );
 };
