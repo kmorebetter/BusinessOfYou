@@ -23,9 +23,9 @@ const Navigation = () => {
         <nav className="pt-20 px-8">
           <h4 className="uppercase text-sm tracking-widest mb-6" style={{fontFamily: 'Crimson Text, serif'}}>Structure</h4>
           <ul className="space-y-6" style={{fontFamily: 'Crimson Text, serif'}}>
-            <li className="leading-none text-xl">01 Contrast</li>
-            <li className="leading-none text-xl">02 Rhythm</li>
-            <li className="leading-none text-xl">03 Balance</li>
+            <li className="leading-none text-lg">01 Contrast</li>
+            <li className="leading-none text-lg">02 Rhythm</li>
+            <li className="leading-none text-lg">03 Balance</li>
           </ul>
         </nav>
       </div>
