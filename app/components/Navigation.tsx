@@ -1,47 +1,70 @@
 'use client';
 import { useState } from 'react';
+import Link from 'next/link';
+import { Lora } from 'next/font/google';
+
+const lora = Lora({ subsets: ['latin'] });
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <>
-      {/* Hamburger button - visible on mobile only */}
-      <button 
-        onClick={() => setIsOpen(!isOpen)}
-        className="fixed top-4 right-4 z-50 p-2 sm:hidden"
-      >
-        <div className="space-y-2">
-          <span className={`block w-8 h-0.5 bg-black transition-transform duration-300 ${isOpen ? 'rotate-45 translate-y-2.5' : ''}`}></span>
-          <span className={`block w-8 h-0.5 bg-black transition-opacity duration-300 ${isOpen ? 'opacity-0' : ''}`}></span>
-          <span className={`block w-8 h-0.5 bg-black transition-transform duration-300 ${isOpen ? '-rotate-45 -translate-y-2.5' : ''}`}></span>
+    <nav className="fixed top-0 left-0 right-0 bg-white z-50 border-b border-[#009A9C]/10">
+      {/* Desktop Navigation */}
+      <div className="max-w-[1400px] mx-auto px-6 md:px-8">
+        <div className="hidden lg:flex items-center justify-center h-20">
+          <div className="max-w-[851px] w-full flex justify-center space-x-8">
+            <Link href="/" className={`${lora.className} text-[#202329] hover:text-[#009A9C] transition-colors duration-200`}>
+              Home
+            </Link>
+            <Link href="/substack" className={`${lora.className} text-[#202329] hover:text-[#009A9C] transition-colors duration-200`}>
+              Substack
+            </Link>
+            <span className={`${lora.className} text-[#202329]`}>02 Rhythm</span>
+            <span className={`${lora.className} text-[#202329]`}>03 Balance</span>
+          </div>
         </div>
-      </button>
-
-      {/* Mobile menu */}
-      <div className={`fixed inset-0 bg-white z-40 transform transition-transform duration-300 sm:hidden ${isOpen ? 'translate-x-0' : 'translate-x-full'}`}>
-        <nav className="pt-20 px-8">
-          <h4 className="uppercase text-sm tracking-widest mb-6" style={{fontFamily: 'Crimson Text, serif'}}>Structure</h4>
-          <ul className="space-y-6" style={{fontFamily: 'Crimson Text, serif'}}>
-            <li className="leading-none text-lg">01 Contrast</li>
-            <li className="leading-none text-lg">02 Rhythm</li>
-            <li className="leading-none text-lg">03 Balance</li>
-          </ul>
-        </nav>
       </div>
 
-      {/* Desktop menu */}
-      <nav className="hidden sm:block">
-        <div className="h-[158px]"></div> {/* Micro-adjusted for pixel-perfect alignment */}
-        <h4 className="uppercase text-sm tracking-widest mb-6" style={{fontFamily: 'Crimson Text, serif'}}>Structure</h4>
-        <ul className="space-y-6" style={{fontFamily: 'Crimson Text, serif'}}>
-          <li className="leading-none">01 Contrast</li>
-          <li className="leading-none">02 Rhythm</li>
-          <li className="leading-none">03 Balance</li>
-        </ul>
-      </nav>
-    </>
+      {/* Mobile Menu Button */}
+      <button 
+        onClick={() => setIsOpen(!isOpen)}
+        className="lg:hidden fixed top-6 right-6 z-50 text-[#202329] p-2"
+      >
+        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          {isOpen ? (
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+          ) : (
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+          )}
+        </svg>
+      </button>
+
+      {/* Mobile Menu Overlay */}
+      <div className={`lg:hidden fixed inset-0 bg-white z-40 transform ${isOpen ? 'translate-x-0' : 'translate-x-full'} transition-transform duration-300 ease-in-out`}>
+        <div className="pt-24 px-6">
+          <div className="flex flex-col space-y-6">
+            <Link 
+              href="/" 
+              className={`${lora.className} text-lg text-[#202329] hover:text-[#009A9C] transition-colors duration-200`}
+              onClick={() => setIsOpen(false)}
+            >
+              Home
+            </Link>
+            <Link 
+              href="/substack" 
+              className={`${lora.className} text-lg text-[#202329] hover:text-[#009A9C] transition-colors duration-200`}
+              onClick={() => setIsOpen(false)}
+            >
+              Substack
+            </Link>
+            <span className={`${lora.className} text-lg text-[#202329]`}>02 Rhythm</span>
+            <span className={`${lora.className} text-lg text-[#202329]`}>03 Balance</span>
+          </div>
+        </div>
+      </div>
+    </nav>
   );
 };
 
-export default Navigation; 
+export default Navigation;
