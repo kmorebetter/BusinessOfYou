@@ -1,9 +1,12 @@
 'use client';
 import { useState } from 'react';
 import Link from 'next/link';
-import { Lora } from 'next/font/google';
+import { PT_Sans } from 'next/font/google';
 
-const lora = Lora({ subsets: ['latin'] });
+const ptSans = PT_Sans({ 
+  subsets: ['latin'],
+  weight: ['400', '700']
+});
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -14,14 +17,14 @@ const Navigation = () => {
       <div className="max-w-[1400px] mx-auto px-6 md:px-8">
         <div className="hidden lg:flex items-center justify-center h-20">
           <div className="max-w-[851px] w-full flex justify-center space-x-8">
-            <Link href="/" className={`${lora.className} text-[#202329] hover:text-[#009A9C] transition-colors duration-200`}>
+            <Link href="/" className={`${ptSans.className} text-[#202329] hover:text-[#009A9C] transition-colors duration-200`}>
               Home
             </Link>
-            <Link href="/substack" className={`${lora.className} text-[#202329] hover:text-[#009A9C] transition-colors duration-200`}>
+            <Link href="/substack" className={`${ptSans.className} text-[#202329] hover:text-[#009A9C] transition-colors duration-200`}>
               Substack
             </Link>
-            <span className={`${lora.className} text-[#202329]`}>02 Rhythm</span>
-            <span className={`${lora.className} text-[#202329]`}>03 Balance</span>
+            <span className={`${ptSans.className} text-[#202329]`}>02 Rhythm</span>
+            <span className={`${ptSans.className} text-[#202329]`}>03 Balance</span>
           </div>
         </div>
       </div>
@@ -46,20 +49,20 @@ const Navigation = () => {
           <div className="flex flex-col space-y-6">
             <Link 
               href="/" 
-              className={`${lora.className} text-lg text-[#202329] hover:text-[#009A9C] transition-colors duration-200`}
+              className={`${ptSans.className} text-lg text-[#202329] hover:text-[#009A9C] transition-colors duration-200`}
               onClick={() => setIsOpen(false)}
             >
               Home
             </Link>
             <Link 
               href="/substack" 
-              className={`${lora.className} text-lg text-[#202329] hover:text-[#009A9C] transition-colors duration-200`}
+              className={`${ptSans.className} text-lg text-[#202329] hover:text-[#009A9C] transition-colors duration-200`}
               onClick={() => setIsOpen(false)}
             >
               Substack
             </Link>
-            <span className={`${lora.className} text-lg text-[#202329]`}>02 Rhythm</span>
-            <span className={`${lora.className} text-lg text-[#202329]`}>03 Balance</span>
+            <span className={`${ptSans.className} text-lg text-[#202329]`}>02 Rhythm</span>
+            <span className={`${ptSans.className} text-lg text-[#202329]`}>03 Balance</span>
           </div>
         </div>
       </div>
